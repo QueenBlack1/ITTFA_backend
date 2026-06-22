@@ -1,19 +1,11 @@
 <?php
-header("Access-Control-Allow-Origin:*");
-header("Access-Control-Allow-Methods:POST, GET, OPTIONS");
-header("Access-Control-Allow-Headers:Content-Type");
-header("Content-Type: application/json; charset=UTF-8");
+$host = "mysql-136a1998-wine-dine.b.aivencloud.com";
+$user = "avnadmin";
+$pass = "AVNS_RDeX-Bqjmm-EFYREqoe";
+$db = "defaultdb";
+$port = 26789;
 
-if ($_SERVER['REQUEST_METHOD'] !=== 'OPTIONS') {
-    exit;
-}
-$host = getenv("DB_HOST") ?? "localhost";
-$user = getenv("DB_USER") ?? "root";
-$pass = getenv("DB_PASS") ?? "";
-$db = getenv("DB_NAME") ?? "winedine";
-
-$conn = new mysqli($host, $user, $pass, $db);
-
+$conn = new mysqli($host, $user, $pass, $db, $port);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
